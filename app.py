@@ -75,7 +75,12 @@ st.pyplot(fig)
 
 # --- Bar Chart: Number of Issues per Asset
 st.subheader("📊 Number of Issues per Asset")
+
+if 'no_of_issues' not in asset_details.columns:
+    asset_details['no_of_issues'] = asset_details['reasons_to_fail'].apply(lambda x: len(x) if isinstance(x, list) else 0)
+
 issues_count = asset_details[['asset_name', 'no_of_issues']].drop_duplicates()
+
 fig_issues = px.bar(
     issues_count, 
     x='asset_name', 
