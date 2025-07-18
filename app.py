@@ -20,29 +20,22 @@ asset_details['month'] = months
 st.set_page_config(layout="wide")
 st.title("🚦 Asset Failure Dashboard")
 
-# --- Filters
+# --- Multi-select Filters
 st.sidebar.header("🔎 Filters")
 asset_ids = asset_details['asset_id'].unique().tolist()
-selected_asset_id = st.sidebar.selectbox("Select Asset ID:", ['All'] + asset_ids)
+selected_asset_ids = st.sidebar.multiselect("Select Asset ID(s):", asset_ids, default=asset_ids)
 
 asset_names = asset_details['asset_name'].unique().tolist()
-selected_asset_name = st.sidebar.selectbox("Select Asset Name:", ['All'] + asset_names)
-
-criticality_levels = problematic_assets['criticality'].unique().tolist() if not problematic_assets.empty else []
-selected_criticality = st.sidebar.selectbox("Select Criticality Level:", ['All'] + criticality_levels)
+selected_asset_names = st.sidebar.multiselect("Select Asset Name(s):", asset_names, default=asset_names)
 
 months = asset_details['month'].unique().tolist()
 selected_month = st.sidebar.selectbox("Select Month:", ['All'] + sorted(months))
 
 # Apply Filters
-filtered_assets = asset_details.copy()
-if selected_asset_id != 'All':
-    filtered_assets = filtered_assets[filtered_assets['asset_id'] == selected_asset_id]
-if selected_asset_name != 'All':
-    filtered_assets = filtered_assets[filtered_assets['asset_name'] == selected_asset_name]
-if selected_criticality != 'All' and not problematic_assets.empty:
-    high_crit_ids = problematic_assets[problematic_assets['criticality'] == selected_criticality]['asset_no'].unique()
-    filtered_assets = filtered_assets[filtered_assets['asset_id'].isin(high_crit_ids)]
+filtered_assets = asset_details[
+    (asset_details['asset_id'].isin(selected_asset_ids)) &
+    (asset_details['asset_name'].isin(selected_asset_names))
+]
 if selected_month != 'All':
     filtered_assets = filtered_assets[filtered_assets['month'] == selected_month]
 
@@ -79,16 +72,6 @@ fig_issues = px.bar(issues_count, x='asset_name', y='no_of_issues', color='no_of
                     labels={'asset_name':'Asset Name', 'no_of_issues':'Number of Issues'})
 st.plotly_chart(fig_issues)
 
-# --- Pie Chart: Criticality
-st.subheader("🥧 Criticality Distribution")
-if not problematic_assets.empty:
-    criticality_counts = problematic_assets['criticality'].value_counts().reset_index()
-    criticality_counts.columns = ['Criticality', 'Count']
-    fig_pie = px.pie(criticality_counts, names='Criticality', values='Count')
-    st.plotly_chart(fig_pie)
-else:
-    st.info("No problematic assets to show criticality distribution.")
-
 # --- Histogram
 st.subheader("📈 Distribution of Average Days to Fail")
 fig_hist = px.histogram(filtered_assets, x='average_days_to_fail', nbins=10, title='Avg Days to Fail', color='asset_name')
@@ -99,24 +82,6 @@ st.subheader("📈 Monthly Trends per Asset")
 trend_data = filtered_assets.groupby(['month', 'asset_name']).size().reset_index(name='issue_count')
 fig_trend = px.line(trend_data, x='month', y='issue_count', color='asset_name', markers=True)
 st.plotly_chart(fig_trend)
-
-# --- Criticality Breakdown (without average_days_to_fail)
-st.subheader("⚠️ Criticality Level Comparison")
-if not problematic_assets.empty:
-    if 'criticality' in problematic_assets.columns and 'asset_no' in problematic_assets.columns:
-        criticality_breakdown = problematic_assets.groupby('criticality').agg(
-            issue_count=('asset_no', 'count')
-        ).reset_index()
-
-        st.dataframe(criticality_breakdown)
-
-        fig_crit = px.bar(criticality_breakdown, x='criticality', y='issue_count', color='criticality',
-                          text='issue_count', title='Number of Issues per Criticality Level')
-        st.plotly_chart(fig_crit)
-    else:
-        st.warning("Required columns for criticality breakdown are missing.")
-else:
-    st.info("No criticality data available for comparison.")
 
 # --- Per Asset Details
 st.subheader("🔍 Per Asset Details")
