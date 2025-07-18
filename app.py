@@ -73,12 +73,18 @@ fig, ax = plt.subplots(figsize=(12,8))
 sns.heatmap(heatmap_data, annot=True, cmap='coolwarm', linewidths=.5, ax=ax)
 st.pyplot(fig)
 
-# --- Bar Chart: Total Failures per Asset
-st.subheader("📊 Total Failures per Asset")
-failures_count = asset_details['asset_name'].value_counts().reset_index()
-failures_count.columns = ['Asset Name', 'Failures']
-fig_bar = px.bar(failures_count, x='Asset Name', y='Failures', color='Failures')
-st.plotly_chart(fig_bar)
+# --- Bar Chart: Number of Issues per Asset
+st.subheader("📊 Number of Issues per Asset")
+issues_count = asset_details[['asset_name', 'no_of_issues']].drop_duplicates()
+fig_issues = px.bar(
+    issues_count, 
+    x='asset_name', 
+    y='no_of_issues', 
+    color='no_of_issues', 
+    title='Number of Issues Identified per Asset',
+    labels={'asset_name':'Asset Name', 'no_of_issues':'Number of Issues'}
+)
+st.plotly_chart(fig_issues)
 
 # --- Pie Chart: Criticality
 st.subheader("🥧 Criticality Distribution")
@@ -104,32 +110,38 @@ st.plotly_chart(fig_trend)
 # --- Enhanced Criticality Breakdown
 st.subheader("⚠️ Criticality Level Comparison")
 if not problematic_assets.empty:
-    criticality_breakdown = problematic_assets.groupby('criticality').agg(
-        issue_count=('asset_no', 'count'),
-        avg_days_to_fail=('average_days_to_fail', 'mean')
-    ).reset_index()
+    expected_columns = ['criticality', 'asset_no', 'average_days_to_fail']
+    missing_cols = [col for col in expected_columns if col not in problematic_assets.columns]
 
-    st.dataframe(criticality_breakdown.style.format({"avg_days_to_fail": "{:.0f}"}))
+    if not missing_cols:
+        criticality_breakdown = problematic_assets.groupby('criticality').agg(
+            issue_count=('asset_no', 'count'),
+            avg_days_to_fail=('average_days_to_fail', 'mean')
+        ).reset_index()
 
-    fig_crit = px.bar(
-        criticality_breakdown,
-        x='criticality',
-        y='issue_count',
-        color='criticality',
-        text='issue_count',
-        title='Number of Issues per Criticality Level'
-    )
-    st.plotly_chart(fig_crit)
+        st.dataframe(criticality_breakdown.style.format({"avg_days_to_fail": "{:.0f}"}))
 
-    fig_days = px.bar(
-        criticality_breakdown,
-        x='criticality',
-        y='avg_days_to_fail',
-        color='criticality',
-        text=criticality_breakdown['avg_days_to_fail'].round(0),
-        title='Average Days to Fail per Criticality Level'
-    )
-    st.plotly_chart(fig_days)
+        fig_crit = px.bar(
+            criticality_breakdown,
+            x='criticality',
+            y='issue_count',
+            color='criticality',
+            text='issue_count',
+            title='Number of Issues per Criticality Level'
+        )
+        st.plotly_chart(fig_crit)
+
+        fig_days = px.bar(
+            criticality_breakdown,
+            x='criticality',
+            y='avg_days_to_fail',
+            color='criticality',
+            text=criticality_breakdown['avg_days_to_fail'].round(0),
+            title='Average Days to Fail per Criticality Level'
+        )
+        st.plotly_chart(fig_days)
+    else:
+        st.warning(f"Missing columns for criticality comparison: {', '.join(missing_cols)}")
 else:
     st.info("No criticality data available for comparison.")
 
