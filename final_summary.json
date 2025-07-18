@@ -1,0 +1,1082 @@
+{
+    "critical_asset_summary": {
+        "High": 95,
+        "Low": 42,
+        "Medium": 63
+    },
+    "most_common_reason_to_fail": "Scheduled maintenance",
+    "problematic_assets": [
+        {
+            "asset_no": "PUMP-001",
+            "asset_name": "Centrifugal Pump",
+            "days_predicted_to_fail": 60,
+            "reason_to_fail": [
+                "Insufficient lubrication"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "CONV-005",
+            "asset_name": "Belt Conveyor",
+            "days_predicted_to_fail": 69,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "PUMP-007",
+            "asset_name": "Gear Pump",
+            "days_predicted_to_fail": 30,
+            "reason_to_fail": [
+                "Environmental conditions"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "HEAT-001",
+            "asset_name": "Heat Exchanger",
+            "days_predicted_to_fail": 36,
+            "reason_to_fail": [
+                "Normal wear and tear"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "MOTOR-012",
+            "asset_name": "Electric Motor",
+            "days_predicted_to_fail": 46,
+            "reason_to_fail": [
+                "Insufficient lubrication"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "COMP-002",
+            "asset_name": "Air Compressor",
+            "days_predicted_to_fail": 60,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "MOTOR-025",
+            "asset_name": "Servo Motor",
+            "days_predicted_to_fail": 42,
+            "reason_to_fail": [
+                "Environmental conditions"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "TURB-004",
+            "asset_name": "Turbine",
+            "days_predicted_to_fail": 54,
+            "reason_to_fail": [
+                "Insufficient lubrication"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "PUMP-001",
+            "asset_name": "Centrifugal Pump",
+            "days_predicted_to_fail": 32,
+            "reason_to_fail": [
+                "Normal wear and tear"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "FAN-003",
+            "asset_name": "Exhaust Fan",
+            "days_predicted_to_fail": 72,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "PUMP-007",
+            "asset_name": "Gear Pump",
+            "days_predicted_to_fail": 30,
+            "reason_to_fail": [
+                "Environmental conditions"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "TURB-004",
+            "asset_name": "Turbine",
+            "days_predicted_to_fail": 55,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "PUMP-001",
+            "asset_name": "Centrifugal Pump",
+            "days_predicted_to_fail": 56,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "COMP-002",
+            "asset_name": "Air Compressor",
+            "days_predicted_to_fail": 50,
+            "reason_to_fail": [
+                "Environmental conditions"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "PUMP-007",
+            "asset_name": "Gear Pump",
+            "days_predicted_to_fail": 68,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "HEAT-001",
+            "asset_name": "Heat Exchanger",
+            "days_predicted_to_fail": 43,
+            "reason_to_fail": [
+                "Environmental conditions"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "MOTOR-012",
+            "asset_name": "Electric Motor",
+            "days_predicted_to_fail": 66,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "CONV-005",
+            "asset_name": "Belt Conveyor",
+            "days_predicted_to_fail": 47,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "MOTOR-025",
+            "asset_name": "Servo Motor",
+            "days_predicted_to_fail": 39,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "VALVE-008",
+            "asset_name": "Control Valve",
+            "days_predicted_to_fail": 46,
+            "reason_to_fail": [
+                "Normal wear and tear"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "CONV-005",
+            "asset_name": "Belt Conveyor",
+            "days_predicted_to_fail": 30,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "FAN-003",
+            "asset_name": "Exhaust Fan",
+            "days_predicted_to_fail": 45,
+            "reason_to_fail": [
+                "Environmental conditions"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "PUMP-007",
+            "asset_name": "Gear Pump",
+            "days_predicted_to_fail": 50,
+            "reason_to_fail": [
+                "Insufficient lubrication"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "HEAT-001",
+            "asset_name": "Heat Exchanger",
+            "days_predicted_to_fail": 54,
+            "reason_to_fail": [
+                "Environmental conditions"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "PUMP-001",
+            "asset_name": "Centrifugal Pump",
+            "days_predicted_to_fail": 35,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "COMP-002",
+            "asset_name": "Air Compressor",
+            "days_predicted_to_fail": 63,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "PUMP-007",
+            "asset_name": "Gear Pump",
+            "days_predicted_to_fail": 62,
+            "reason_to_fail": [
+                "Progressive wear"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "TURB-004",
+            "asset_name": "Turbine",
+            "days_predicted_to_fail": 52,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "MOTOR-012",
+            "asset_name": "Electric Motor",
+            "days_predicted_to_fail": 54,
+            "reason_to_fail": [
+                "Environmental conditions"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "FAN-003",
+            "asset_name": "Exhaust Fan",
+            "days_predicted_to_fail": 55,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "MOTOR-025",
+            "asset_name": "Servo Motor",
+            "days_predicted_to_fail": 40,
+            "reason_to_fail": [
+                "Age-related degradation"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "VALVE-008",
+            "asset_name": "Control Valve",
+            "days_predicted_to_fail": 32,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "PUMP-001",
+            "asset_name": "Centrifugal Pump",
+            "days_predicted_to_fail": 43,
+            "reason_to_fail": [
+                "Insufficient lubrication"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "MOTOR-012",
+            "asset_name": "Electric Motor",
+            "days_predicted_to_fail": 47,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "FAN-003",
+            "asset_name": "Exhaust Fan",
+            "days_predicted_to_fail": 64,
+            "reason_to_fail": [
+                "Normal wear and tear"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "PUMP-007",
+            "asset_name": "Gear Pump",
+            "days_predicted_to_fail": 73,
+            "reason_to_fail": [
+                "Progressive wear"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "VALVE-008",
+            "asset_name": "Control Valve",
+            "days_predicted_to_fail": 62,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "PUMP-001",
+            "asset_name": "Centrifugal Pump",
+            "days_predicted_to_fail": 51,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "MOTOR-012",
+            "asset_name": "Electric Motor",
+            "days_predicted_to_fail": 44,
+            "reason_to_fail": [
+                "Normal wear and tear"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "FAN-003",
+            "asset_name": "Exhaust Fan",
+            "days_predicted_to_fail": 36,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "PUMP-007",
+            "asset_name": "Gear Pump",
+            "days_predicted_to_fail": 70,
+            "reason_to_fail": [
+                "Progressive wear"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "MOTOR-025",
+            "asset_name": "Servo Motor",
+            "days_predicted_to_fail": 61,
+            "reason_to_fail": [
+                "Age-related degradation"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "HEAT-001",
+            "asset_name": "Heat Exchanger",
+            "days_predicted_to_fail": 61,
+            "reason_to_fail": [
+                "Environmental conditions"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "TURB-004",
+            "asset_name": "Turbine",
+            "days_predicted_to_fail": 56,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "CONV-005",
+            "asset_name": "Belt Conveyor",
+            "days_predicted_to_fail": 60,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "FAN-003",
+            "asset_name": "Exhaust Fan",
+            "days_predicted_to_fail": 44,
+            "reason_to_fail": [
+                "Environmental conditions"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "PUMP-007",
+            "asset_name": "Gear Pump",
+            "days_predicted_to_fail": 69,
+            "reason_to_fail": [
+                "Progressive wear"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "MOTOR-025",
+            "asset_name": "Servo Motor",
+            "days_predicted_to_fail": 40,
+            "reason_to_fail": [
+                "Age-related degradation"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "PUMP-001",
+            "asset_name": "Centrifugal Pump",
+            "days_predicted_to_fail": 31,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "COMP-002",
+            "asset_name": "Air Compressor",
+            "days_predicted_to_fail": 45,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "PUMP-007",
+            "asset_name": "Gear Pump",
+            "days_predicted_to_fail": 53,
+            "reason_to_fail": [
+                "Progressive wear"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "MOTOR-025",
+            "asset_name": "Servo Motor",
+            "days_predicted_to_fail": 57,
+            "reason_to_fail": [
+                "Age-related degradation"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "VALVE-008",
+            "asset_name": "Control Valve",
+            "days_predicted_to_fail": 63,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "PUMP-001",
+            "asset_name": "Centrifugal Pump",
+            "days_predicted_to_fail": 37,
+            "reason_to_fail": [
+                "Insufficient lubrication"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "MOTOR-012",
+            "asset_name": "Electric Motor",
+            "days_predicted_to_fail": 52,
+            "reason_to_fail": [
+                "Environmental conditions"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "FAN-003",
+            "asset_name": "Exhaust Fan",
+            "days_predicted_to_fail": 57,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "PUMP-007",
+            "asset_name": "Gear Pump",
+            "days_predicted_to_fail": 70,
+            "reason_to_fail": [
+                "Progressive wear"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "MOTOR-025",
+            "asset_name": "Servo Motor",
+            "days_predicted_to_fail": 37,
+            "reason_to_fail": [
+                "Age-related degradation"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "PUMP-001",
+            "asset_name": "Centrifugal Pump",
+            "days_predicted_to_fail": 28,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "MOTOR-012",
+            "asset_name": "Electric Motor",
+            "days_predicted_to_fail": 59,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "FAN-003",
+            "asset_name": "Exhaust Fan",
+            "days_predicted_to_fail": 61,
+            "reason_to_fail": [
+                "Normal wear and tear"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "PUMP-007",
+            "asset_name": "Gear Pump",
+            "days_predicted_to_fail": 72,
+            "reason_to_fail": [
+                "Progressive wear"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "MOTOR-025",
+            "asset_name": "Servo Motor",
+            "days_predicted_to_fail": 73,
+            "reason_to_fail": [
+                "Age-related degradation"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "VALVE-008",
+            "asset_name": "Control Valve",
+            "days_predicted_to_fail": 68,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "MOTOR-012",
+            "asset_name": "Electric Motor",
+            "days_predicted_to_fail": 50,
+            "reason_to_fail": [
+                "Normal wear and tear"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "FAN-003",
+            "asset_name": "Exhaust Fan",
+            "days_predicted_to_fail": 70,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "PUMP-007",
+            "asset_name": "Gear Pump",
+            "days_predicted_to_fail": 38,
+            "reason_to_fail": [
+                "Progressive wear"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "VALVE-008",
+            "asset_name": "Control Valve",
+            "days_predicted_to_fail": 64,
+            "reason_to_fail": [
+                "Environmental conditions"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "HEAT-001",
+            "asset_name": "Heat Exchanger",
+            "days_predicted_to_fail": 54,
+            "reason_to_fail": [
+                "Environmental conditions"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "CONV-005",
+            "asset_name": "Belt Conveyor",
+            "days_predicted_to_fail": 60,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "FAN-003",
+            "asset_name": "Exhaust Fan",
+            "days_predicted_to_fail": 36,
+            "reason_to_fail": [
+                "Environmental conditions"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "TURB-004",
+            "asset_name": "Turbine",
+            "days_predicted_to_fail": 74,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "PUMP-001",
+            "asset_name": "Centrifugal Pump",
+            "days_predicted_to_fail": 65,
+            "reason_to_fail": [
+                "Insufficient lubrication"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "COMP-002",
+            "asset_name": "Air Compressor",
+            "days_predicted_to_fail": 50,
+            "reason_to_fail": [
+                "Environmental conditions"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "FAN-003",
+            "asset_name": "Exhaust Fan",
+            "days_predicted_to_fail": 63,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "VALVE-008",
+            "asset_name": "Control Valve",
+            "days_predicted_to_fail": 45,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "HEAT-001",
+            "asset_name": "Heat Exchanger",
+            "days_predicted_to_fail": 67,
+            "reason_to_fail": [
+                "Environmental conditions"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "PUMP-001",
+            "asset_name": "Centrifugal Pump",
+            "days_predicted_to_fail": 60,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "MOTOR-012",
+            "asset_name": "Electric Motor",
+            "days_predicted_to_fail": 40,
+            "reason_to_fail": [
+                "Age-related degradation"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "FAN-003",
+            "asset_name": "Exhaust Fan",
+            "days_predicted_to_fail": 70,
+            "reason_to_fail": [
+                "Progressive wear"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "VALVE-008",
+            "asset_name": "Control Valve",
+            "days_predicted_to_fail": 46,
+            "reason_to_fail": [
+                "Environmental conditions"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "HEAT-001",
+            "asset_name": "Heat Exchanger",
+            "days_predicted_to_fail": 54,
+            "reason_to_fail": [
+                "Environmental conditions"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "TURB-004",
+            "asset_name": "Turbine",
+            "days_predicted_to_fail": 56,
+            "reason_to_fail": [
+                "Progressive wear"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "PUMP-001",
+            "asset_name": "Centrifugal Pump",
+            "days_predicted_to_fail": 72,
+            "reason_to_fail": [
+                "Operating stress"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "MOTOR-012",
+            "asset_name": "Electric Motor",
+            "days_predicted_to_fail": 36,
+            "reason_to_fail": [
+                "Age-related degradation"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "COMP-002",
+            "asset_name": "Air Compressor",
+            "days_predicted_to_fail": 43,
+            "reason_to_fail": [
+                "Progressive wear"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "FAN-003",
+            "asset_name": "Exhaust Fan",
+            "days_predicted_to_fail": 40,
+            "reason_to_fail": [
+                "Progressive wear"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "VALVE-008",
+            "asset_name": "Control Valve",
+            "days_predicted_to_fail": 51,
+            "reason_to_fail": [
+                "Progressive wear"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "HEAT-001",
+            "asset_name": "Heat Exchanger",
+            "days_predicted_to_fail": 40,
+            "reason_to_fail": [
+                "Environmental conditions"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "TURB-004",
+            "asset_name": "Turbine",
+            "days_predicted_to_fail": 42,
+            "reason_to_fail": [
+                "Progressive wear"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "PUMP-001",
+            "asset_name": "Centrifugal Pump",
+            "days_predicted_to_fail": 39,
+            "reason_to_fail": [
+                "Progressive wear"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "MOTOR-012",
+            "asset_name": "Electric Motor",
+            "days_predicted_to_fail": 67,
+            "reason_to_fail": [
+                "Age-related degradation"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "VALVE-008",
+            "asset_name": "Control Valve",
+            "days_predicted_to_fail": 70,
+            "reason_to_fail": [
+                "Progressive wear"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "HEAT-001",
+            "asset_name": "Heat Exchanger",
+            "days_predicted_to_fail": 61,
+            "reason_to_fail": [
+                "Environmental conditions"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        },
+        {
+            "asset_no": "TURB-004",
+            "asset_name": "Turbine",
+            "days_predicted_to_fail": 41,
+            "reason_to_fail": [
+                "Progressive wear"
+            ],
+            "criticality": "High",
+            "number_of_issues": 1
+        }
+    ],
+    "asset_details_summary": [
+        {
+            "asset_id": "PUMP-001",
+            "asset_name": "Centrifugal Pump",
+            "reasons_to_fail": [
+                "Scheduled maintenance",
+                "Insufficient lubrication",
+                "Operating stress",
+                "Normal wear and tear",
+                "Progressive wear"
+            ],
+            "average_days_to_fail": 46
+        },
+        {
+            "asset_id": "MOTOR-012",
+            "asset_name": "Electric Motor",
+            "reasons_to_fail": [
+                "Scheduled maintenance",
+                "Insufficient lubrication",
+                "Operating stress",
+                "Environmental conditions",
+                "Age-related degradation",
+                "Normal wear and tear"
+            ],
+            "average_days_to_fail": 55
+        },
+        {
+            "asset_id": "CONV-005",
+            "asset_name": "Belt Conveyor",
+            "reasons_to_fail": [
+                "Environmental conditions",
+                "Operating stress",
+                "Scheduled maintenance",
+                "Normal wear and tear"
+            ],
+            "average_days_to_fail": 51
+        },
+        {
+            "asset_id": "COMP-002",
+            "asset_name": "Air Compressor",
+            "reasons_to_fail": [
+                "Scheduled maintenance",
+                "Operating stress",
+                "Environmental conditions",
+                "Normal wear and tear",
+                "Progressive wear"
+            ],
+            "average_days_to_fail": 49
+        },
+        {
+            "asset_id": "FAN-003",
+            "asset_name": "Exhaust Fan",
+            "reasons_to_fail": [
+                "Scheduled maintenance",
+                "Operating stress",
+                "Environmental conditions",
+                "Normal wear and tear",
+                "Progressive wear"
+            ],
+            "average_days_to_fail": 54
+        },
+        {
+            "asset_id": "PUMP-007",
+            "asset_name": "Gear Pump",
+            "reasons_to_fail": [
+                "Scheduled maintenance",
+                "Insufficient lubrication",
+                "Operating stress",
+                "Environmental conditions",
+                "Progressive wear"
+            ],
+            "average_days_to_fail": 54
+        },
+        {
+            "asset_id": "MOTOR-025",
+            "asset_name": "Servo Motor",
+            "reasons_to_fail": [
+                "Scheduled maintenance",
+                "Operating stress",
+                "Environmental conditions",
+                "Age-related degradation",
+                "Normal wear and tear"
+            ],
+            "average_days_to_fail": 52
+        },
+        {
+            "asset_id": "VALVE-008",
+            "asset_name": "Control Valve",
+            "reasons_to_fail": [
+                "Scheduled maintenance",
+                "Operating stress",
+                "Environmental conditions",
+                "Normal wear and tear",
+                "Progressive wear"
+            ],
+            "average_days_to_fail": 52
+        },
+        {
+            "asset_id": "HEAT-001",
+            "asset_name": "Heat Exchanger",
+            "reasons_to_fail": [
+                "Environmental conditions",
+                "Operating stress",
+                "Scheduled maintenance",
+                "Normal wear and tear"
+            ],
+            "average_days_to_fail": 48
+        },
+        {
+            "asset_id": "TURB-004",
+            "asset_name": "Turbine",
+            "reasons_to_fail": [
+                "Scheduled maintenance",
+                "Insufficient lubrication",
+                "Operating stress",
+                "Environmental conditions",
+                "Normal wear and tear",
+                "Progressive wear"
+            ],
+            "average_days_to_fail": 51
+        }
+    ]
+}
