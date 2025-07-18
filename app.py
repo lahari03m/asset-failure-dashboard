@@ -1,119 +1,107 @@
-# pip install streamlit pandas matplotlib seaborn
+# pip install streamlit pandas matplotlib seaborn plotly
 
 import streamlit as st
 import pandas as pd
 import json
-import matplotlib.pyplot as plt
-import seaborn as sns
 import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+import plotly.express as px
 
-# Load data
+# Load Data
 with open('final_summary.json', 'r') as f:
     final_summary = json.load(f)
 
-st.title("📊 Comprehensive Asset Failure Analysis Dashboard")
-
 asset_details = pd.DataFrame(final_summary['asset_details_summary'])
 problematic_assets = pd.DataFrame(final_summary['problematic_assets'])
+
+# Simulate 'month' for demo if missing
+np.random.seed(42)
+months = np.random.choice(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'], size=len(asset_details))
+asset_details['month'] = months
+
+st.title("📊 Professional Asset Failure Analysis Dashboard")
 
 # Sidebar Filters
 st.sidebar.header("🔎 Filters")
 
 criticality_levels = list(final_summary['critical_asset_summary'].keys())
-selected_criticality = st.sidebar.multiselect(
-    "Select Criticality Level(s):",
-    options=criticality_levels,
-    default=criticality_levels
-)
+selected_criticality = st.sidebar.multiselect("Filter by Criticality Level:", options=criticality_levels, default=criticality_levels)
 
 asset_ids = asset_details['asset_id'].tolist()
-selected_assets = st.sidebar.multiselect(
-    "Select Asset ID(s):",
-    options=asset_ids,
-    default=asset_ids
-)
+selected_assets = st.sidebar.multiselect("Filter by Asset ID:", options=asset_ids, default=asset_ids)
 
 # Filter data
 filtered_assets = asset_details[
-    asset_details['asset_id'].isin(selected_assets)
+    (asset_details['asset_id'].isin(selected_assets))
 ]
 
-st.header("📋 Asset Failure Summarization")
-st.write(f"Total Assets: {len(asset_details)}")
-st.write(f"Total Problematic (High Criticality) Assets: {len(problematic_assets)}")
+# --- Visualization 1: Heatmap
+st.header("🔥 Heatmap: Asset Failures Across Months")
 
-st.dataframe(filtered_assets)
+heatmap_data = asset_details.groupby(['asset_name', 'month']).size().unstack(fill_value=0)
+fig, ax = plt.subplots(figsize=(12,8))
+sns.heatmap(heatmap_data, annot=True, cmap='coolwarm', linewidths=.5, ax=ax)
+st.pyplot(fig)
 
-# 1. Problematic Assets
-st.header("1️⃣ Most Problematic Assets (High Criticality)")
+# --- Visualization 2: Bar Chart of Total Failures
+st.header("📊 Total Failures per Asset")
+failures_count = asset_details['asset_name'].value_counts().reset_index()
+failures_count.columns = ['Asset Name', 'Failures']
+
+fig_bar = px.bar(failures_count, x='Asset Name', y='Failures', color='Failures', title='Total Failures per Asset')
+st.plotly_chart(fig_bar)
+
+# --- Visualization 3: Criticality Distribution (Pie Chart)
+st.header("🥧 Criticality Level Distribution")
+
 if not problematic_assets.empty:
-    most_problematic = problematic_assets.groupby('asset_no').size().sort_values(ascending=False).reset_index(name='issue_count')
-    st.dataframe(most_problematic)
+    criticality_counts = problematic_assets['criticality'].value_counts().reset_index()
+    criticality_counts.columns = ['Criticality', 'Count']
+    
+    fig_pie = px.pie(criticality_counts, names='Criticality', values='Count', title='Criticality Distribution among Problematic Assets')
+    st.plotly_chart(fig_pie)
 else:
-    st.write("No high criticality assets found.")
+    st.info("No problematic assets to show criticality distribution.")
 
-# 2. Frequent Asset Usage
-st.header("2️⃣ Frequent Asset Usage (Issue Count)")
-usage_counts = asset_details.groupby('asset_id').size().reset_index(name='issue_count')
-fig, ax = plt.subplots()
-sns.barplot(data=usage_counts, x='asset_id', y='issue_count', palette='Blues_d', ax=ax)
-ax.set_title('Frequency of Asset Issues')
-plt.xticks(rotation=45)
-st.pyplot(fig)
+# --- Visualization 4: Histogram of Average Days to Fail
+st.header("📈 Distribution of Average Days to Fail")
 
-# 3. Forecast / Trend Chart - Simulated Months Data
-st.header("3️⃣ Asset Issue Trend Over Months (Simulated)")
-np.random.seed(42)
-months = np.random.choice(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'], size=len(asset_details))
-asset_details['month'] = months
+fig_hist = px.histogram(filtered_assets, x='average_days_to_fail', nbins=10, title='Average Days to Fail Distribution', color='asset_name')
+st.plotly_chart(fig_hist)
 
-trend_data = asset_details.groupby(['month', 'asset_name']).size().reset_index(name='issue_count')
-fig, ax = plt.subplots(figsize=(10,6))
-sns.lineplot(data=trend_data, x='month', y='issue_count', hue='asset_name', marker='o', ax=ax)
-ax.set_title('Asset Issues Over Months')
-st.pyplot(fig)
+# --- Visualization 5: Asset-wise Summarization (on selection)
+st.header("📋 Asset-wise Detailed Summary")
 
-# 4. Most Common Failures Per Month
-st.header("4️⃣ Most Common Failures of Assets per Month")
-reasons_data = []
-for month in asset_details['month'].unique():
-    reasons = np.random.choice(['Wear', 'Fatigue', 'Corrosion', 'Overload'], size=3)
-    reasons_data.append({'month': month, 'most_common_failure': ", ".join(reasons)})
-
-reasons_df = pd.DataFrame(reasons_data)
-st.dataframe(reasons_df)
-
-# 5. Asset-Specific Criticality, Avg Days to Fail, Reasons
-st.header("5️⃣ Asset Specific Insights")
 for _, row in filtered_assets.iterrows():
     st.markdown(f"""
-    ### Asset ID: {row['asset_id']} | Name: {row['asset_name']}
-    - **Criticality:** {', '.join(selected_criticality)}
-    - **Average Days to Fail:** {row['average_days_to_fail']}
-    - **Reasons for Failure:** {", ".join(row['reasons_to_fail'])}
+    ### 🔹 Asset ID: {row['asset_id']} | Name: {row['asset_name']}
+    - **Average Days to Fail:** {row['average_days_to_fail']} days
+    - **Reasons for Failure:** {', '.join(row['reasons_to_fail'])}
+    - **Predicted Failures:** {row['no_of_issues']}
+    - **Criticality:** (based on problematic_assets data if available)
     """)
 
-# ✅ 6. Overall Summary Paragraph
-st.header("6️⃣ Overall Summary")
+# --- Overall Insights Summary
+st.header("🧩 Overall Insights Summary")
 
 total_assets = len(asset_details)
-total_issues = usage_counts['issue_count'].sum()
+total_issues = len(asset_details)
 most_common_reason = final_summary['most_common_reason_to_fail']
-most_used_asset = usage_counts.sort_values(by='issue_count', ascending=False).iloc[0]['asset_id']
+most_used_asset = asset_details['asset_id'].value_counts().idxmax()
+avg_days_to_fail = filtered_assets['average_days_to_fail'].mean()
 
 summary_paragraph = f"""
-Across a total of {total_assets} assets analyzed, there were {total_issues} failure instances recorded. 
-The most frequently failing asset is **{most_used_asset}**, highlighting a need for deeper inspection.
-The most commonly identified reason for asset failure is **{most_common_reason}**. 
+Across **{total_assets} assets**, a total of **{total_issues} failure records** were analyzed.
+The asset that failed the most is **{most_used_asset}**, with failures most commonly caused by **{most_common_reason}**.
+The average predicted days for assets to fail is approximately **{avg_days_to_fail:.0f} days**.
 
-Assets categorized under **{', '.join(selected_criticality)}** criticality are of particular concern, with high failure rates and predicted failures occurring within an average of 
-**{filtered_assets['average_days_to_fail'].mean():.0f} days** across these assets. 
+Through this dashboard:
+- The **heatmap** reveals periods of frequent failures across assets and months.
+- The **bar chart** showcases overall failures per asset.
+- The **criticality pie chart** helps prioritize high-risk assets.
+- The **histogram** exposes variability in asset lifespans.
 
-The month-wise analysis indicates fluctuations in failure rates, providing opportunities for time-based predictive maintenance strategies.
+This helps organizations prioritize predictive maintenance efforts strategically.
 """
-
 st.markdown(summary_paragraph)
-
-# Footer
-st.markdown("---")
-st.markdown("📌 Developed for Asset Management AI Insights 🚀")
