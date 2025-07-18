@@ -39,9 +39,15 @@ filtered_assets = asset_details[
 if selected_month != 'All':
     filtered_assets = filtered_assets[filtered_assets['month'] == selected_month]
 
+# --- Ensure no_of_issues is present
+if 'no_of_issues' not in asset_details.columns:
+    asset_details['no_of_issues'] = asset_details['reasons_to_fail'].apply(lambda x: len(x) if isinstance(x, list) else 0)
+if 'no_of_issues' not in filtered_assets.columns:
+    filtered_assets['no_of_issues'] = filtered_assets['reasons_to_fail'].apply(lambda x: len(x) if isinstance(x, list) else 0)
+
 # --- KPI Metrics
 total_assets = len(asset_details['asset_id'].unique())
-total_issues = len(asset_details)
+total_issues = asset_details['no_of_issues'].sum()
 problematic_count = len(problematic_assets)
 
 kpi1, kpi2, kpi3 = st.columns(3)
@@ -58,18 +64,17 @@ fig, ax = plt.subplots(figsize=(12,8))
 sns.heatmap(heatmap_data, annot=True, cmap='coolwarm', linewidths=.5, ax=ax)
 st.pyplot(fig)
 
-# --- Ensure no_of_issues is present
-if 'no_of_issues' not in asset_details.columns:
-    asset_details['no_of_issues'] = asset_details['reasons_to_fail'].apply(lambda x: len(x) if isinstance(x, list) else 0)
-if 'no_of_issues' not in filtered_assets.columns:
-    filtered_assets['no_of_issues'] = filtered_assets['reasons_to_fail'].apply(lambda x: len(x) if isinstance(x, list) else 0)
-
 # --- Bar Chart: Number of Issues per Asset
-st.subheader("📊 Number of Issues per Asset")
-issues_count = asset_details[['asset_name', 'no_of_issues']].drop_duplicates()
-fig_issues = px.bar(issues_count, x='asset_name', y='no_of_issues', color='no_of_issues',
-                    title='Number of Issues Identified per Asset',
-                    labels={'asset_name':'Asset Name', 'no_of_issues':'Number of Issues'})
+st.subheader("📊 Total Number of Issues per Asset")
+issues_count = filtered_assets.groupby('asset_name')['no_of_issues'].sum().reset_index()
+fig_issues = px.bar(
+    issues_count,
+    x='asset_name',
+    y='no_of_issues',
+    color='no_of_issues',
+    title='Total Number of Issues per Asset',
+    labels={'asset_name':'Asset Name', 'no_of_issues':'Total Number of Issues'}
+)
 st.plotly_chart(fig_issues)
 
 # --- Histogram
